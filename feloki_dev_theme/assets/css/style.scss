@@ -1,0 +1,115 @@
+$backgroundColor: {{ .Site.Params.style.backgroundColor | default "darkgrey" }};
+$lightColor: {{ .Site.Params.style.lightColor | default "lightgrey" }};
+$navColor: {{ .Site.Params.style.navColor | default "lightgrey" }};
+$footerColor: {{ .Site.Params.style.footerColor | default "lightgrey" }};
+$smallSidebarColor: {{ .Site.Params.style.smallSidebarColor | default "lightgrey" }};
+
+
+
+
+:root {
+    
+    --main-padding: 2em;
+    --main-side-padding: 2em;
+  }
+
+
+  
+  body {
+
+    font-family: 'Arial';
+    font-size: 1.3em;
+    font-variation-settings: "wght" 400;
+    font-optical-sizing: auto;
+    background-color: $backgroundColor;
+    color: $lightColor;
+    margin: 0px;
+    }
+
+    a {
+        color: $lightColor;
+    }
+
+    .slogan {
+        
+        font-size:2em;
+        font-variation-settings: "wght" 600;
+    }
+  
+  .container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 0.04fr 0.18fr 0.78fr;
+    grid-template-rows: 0.81fr 0.19fr;
+    grid-template-areas:
+      "ssidebar sidebar main"
+      "ssidebar sidebar footer";
+    margin:0px;
+    
+    
+  }
+  
+  #ssidebar {
+    background-color: $smallSidebarColor;
+    color: $lightColor;
+    grid-area: ssidebar;
+    padding: var(--main-padding) var(--main-side-padding);
+  }
+  
+  #sidebar {
+    grid-area: sidebar;
+    background-color: $navColor;
+    color: $lightColor;
+    padding: var(--main-padding) var(--main-side-padding);
+  }
+
+  #sidebar ul {
+    display: inline;
+    justify-content: center;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    list-style-type: none;
+    padding:0; 
+    margin-top:0;
+  }
+
+  #sidebar a {
+    font-variation-settings: "wght" 600;
+    text-decoration: none;
+  }
+  
+  main {
+    text-align: left;
+    grid-area: main;
+    background-color: $backgroundColor;
+    color: $lightColor;
+    padding: var(--main-padding) 6em;
+  }
+  
+  footer {
+    grid-area: footer;
+    background-color: $footerColor;
+    color: $lightColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--main-padding) var(--main-side-padding);
+    
+  }
+  
+  @media only screen and (max-width: 550px) {
+    .container {
+      grid-template-columns: 0.05fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr ;
+      grid-template-areas:
+        "ssidebar sidebar"
+        "ssidebar main"
+        "ssidebar footer"
+        ;
+    }
+    main{
+        padding: var(--main-padding) var(--main-side-padding);
+    }
+  }
+  

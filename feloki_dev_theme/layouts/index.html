@@ -1,8 +1,11 @@
 {{ partial "head.html" . }}
 {{ partial "header.html" . }}
-    <h1>{{ .Site.Title }}</h1>
-    {{ range first 10 .Site.RegularPages }}
-    <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-    {{ end }}
 
+{{ partial "main.html" . }}
+
+
+
+    
+
+{{ partial "sidebar.html" . }}
 {{ partial "footer.html" . }}
